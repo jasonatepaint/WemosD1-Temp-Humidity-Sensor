@@ -1,7 +1,7 @@
 # WemosD1 ESP8266 based DHT22 Temperature sensor
 
-https://www.wemos.cc/product/d1-mini.html
-https://www.wemos.cc/product/dht-pro-shield.html
+- https://www.wemos.cc/product/d1-mini.html
+- https://www.wemos.cc/product/dht-pro-shield.html
 
 Code for building a Wemos D1 ESP8266 based temperature & Humidity sensor. 
 
