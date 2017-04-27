@@ -8,7 +8,7 @@
 class MQTTClient
 {
   public:
-    MQTTClient(const char *ssid, const char *password, const char *mqttServer, const char *mqttUser, const char *mqttPassword);
+    MQTTClient(const char *ssid, const char *password, const char *mqttServer, const int port, const char *mqttUser, const char *mqttPassword);
     void setup();
     void loop();
     void publish(const char* topic, const char* payload, boolean retained);
@@ -20,7 +20,7 @@ class MQTTClient
     const char *_mqttServer;
     const char *_mqttUser;
     const char *_mqttPassword;
-
+    int _port;
     void _reconnect();
 };
 

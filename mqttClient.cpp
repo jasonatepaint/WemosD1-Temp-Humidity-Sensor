@@ -4,20 +4,23 @@ MQTTClient::MQTTClient(
   const char *ssid,
   const char *password,
   const char *mqttServer,
+  const int port,
   const char *mqttUser,
-  const char *mqttPassword
+  const char *mqttPassword  
 ) {
   _subClient = new PubSubClient(_wifiClient);
   _mqttServer = mqttServer;
+  _port = port;
   _ssid = ssid;
   _password = password;
   _mqttUser = mqttUser;
-  _mqttPassword = mqttPassword;
+  _mqttPassword = mqttPassword;  
 }
+
 void MQTTClient::setup() {
   WiFi.mode(WIFI_STA);
   WiFi.begin(_ssid, _password);
-  _subClient->setServer(_mqttServer, 1883);
+  _subClient->setServer(_mqttServer, _port);
   Serial.println("");
 
   while (WiFi.waitForConnectResult() != WL_CONNECTED) {
@@ -55,7 +58,7 @@ void MQTTClient::_reconnect() {
       Serial.print("failed, rc=");
       Serial.print(_subClient->state());
       Serial.println(" try again in 5 seconds");
-      // Wait 5 seconds before retrying
+      // Wait before retrying
       delay(2000);
     }
   }

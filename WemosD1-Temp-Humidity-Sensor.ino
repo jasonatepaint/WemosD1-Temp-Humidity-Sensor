@@ -10,10 +10,10 @@ MQTTClient *mqttClient;
 DhtSensor *dhtSensor;
 CodeOTA *codeOTA;
 
-const int sleepTimeS = 60;
+const int sleepTimeS = 10;
 
 void setup(void) {
-  mqttClient = new MQTTClient(ssid, password, mqttServer, mqttUser, mqttPassword);
+  mqttClient = new MQTTClient(ssid, password, mqttServer, mqttPort, mqttUser, mqttPassword);
   mqttClient->setup();
 
   dhtSensor = new DhtSensor(topicTemperature);
@@ -33,7 +33,7 @@ void setup(void) {
 }
 
 void loop(void) {
-    
+    //Not required, since Sleep causes a reboot on power up.
 }
 
 void sleep() {
