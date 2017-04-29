@@ -15,6 +15,7 @@ class DhtSensor
 
   private:
     const char *_topic;
+    void sendMessage(MQTTClient* client, float humidity, float temperature);
 };
 
 #endif
